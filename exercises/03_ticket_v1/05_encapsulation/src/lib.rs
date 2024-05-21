@@ -39,11 +39,6 @@ pub mod ticket {
         pub fn status(self) -> String {
             return self.status;
         }
-
-        // TODO: Add three public methods to the `Ticket` struct:
-        //  - `title` that returns the `title` field.
-        //  - `description` that returns the `description` field.
-        //  - `status` that returns the `status` field.
     }
 }
 
