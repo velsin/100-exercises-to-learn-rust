@@ -19,16 +19,13 @@ impl Ticket {
     fn new(title: String, description: String, status: String) -> Self {
         // Title validation
         assert!(!title.is_empty(), "Title cannot be empty");
-        assert!(
-            title.len() <= 50,
-            "Title cannot be longer than 50 characters"
-        );
+        assert!(title.len() <= 50, "Title cannot be longer than 50 bytes");
 
         // Description validation
         assert!(!description.is_empty(), "Description cannot be empty");
         assert!(
             description.len() <= 500,
-            "Description cannot be longer than 500 characters"
+            "Description cannot be longer than 500 bytes"
         );
 
         // Status validation

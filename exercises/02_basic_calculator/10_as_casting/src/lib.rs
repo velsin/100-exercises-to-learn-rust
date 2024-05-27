@@ -6,16 +6,23 @@ mod tests {
 
     #[test]
     fn u16_to_u32() {
-        assert_eq!(47u16 as u32, 47);
+        let v: u32 = 47;
+        assert_eq!(47u16 as u32, v);
     }
 
     #[test]
     fn u8_to_i8() {
-        assert_eq!(255 as i8, -1);
+        #[allow(overflowing_literals)]
+        let x = { 255 as i8 };
+
+        let y: i8 = -1;
+
+        assert_eq!(x, y);
     }
 
     #[test]
     fn bool_to_u8() {
-        assert_eq!(true as u8, 1);
+        let v: u8 = 1;
+        assert_eq!(true as u8, v);
     }
 }
