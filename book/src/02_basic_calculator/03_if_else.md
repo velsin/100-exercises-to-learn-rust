@@ -1,11 +1,11 @@
 # Control flow, part 1
 
-All our programs so far have been pretty straightforward.  
+All our programs so far have been pretty straightforward.\
 A sequence of instructions is executed from top to bottom, and that's it.
 
 It's time to introduce some **branching**.
 
-## `if` expressions
+## `if` clauses
 
 The `if` keyword is used to execute a block of code only if a condition is true.
 
@@ -20,8 +20,10 @@ if number < 5 {
 
 This program will print `number is smaller than 5` because the condition `number < 5` is true.
 
+### `else` clauses
+
 Like most programming languages, Rust supports an optional `else` branch to execute a block of code when the condition in an
-`if` expression is false.  
+`if` expression is false.\
 For example:
 
 ```rust
@@ -36,7 +38,7 @@ if number < 5 {
 
 ## Booleans
 
-The condition in an `if` expression must be of type `bool`, a **boolean**.  
+The condition in an `if` expression must be of type `bool`, a **boolean**.\
 Booleans, just like integers, are a primitive type in Rust.
 
 A boolean can have one of two values: `true` or `false`.
@@ -65,12 +67,12 @@ error[E0308]: mismatched types
 ```
 
 This follows from Rust's philosophy around type coercion: there's no automatic conversion from non-boolean types to booleans.
-Rust doesn't have the concept of **truthy** or **falsy** values, like JavaScript or Python.  
+Rust doesn't have the concept of **truthy** or **falsy** values, like JavaScript or Python.\
 You have to be explicit about the condition you want to check.
 
 ### Comparison operators
 
-It's quite common to use comparison operators to build conditions for `if` expressions.  
+It's quite common to use comparison operators to build conditions for `if` expressions.\
 Here are the comparison operators available in Rust when working with integers:
 
 - `==`: equal to
@@ -80,6 +82,20 @@ Here are the comparison operators available in Rust when working with integers:
 - `<=`: less than or equal to
 - `>=`: greater than or equal to
 
-## References
+## `if/else` is an expression
 
-- The exercise for this section is located in `exercises/02_basic_calculator/03_if_else`
+In Rust, `if` expressions are **expressions**, not statements: they return a value.\
+That value can be assigned to a variable or used in other expressions. For example:
+
+```rust
+let number = 3;
+let message = if number < 5 {
+    "smaller than 5"
+} else {
+    "greater than or equal to 5"
+};
+```
+
+In the example above, each branch of the `if` evaluates to a string literal,
+which is then assigned to the `message` variable.\
+The only requirement is that both `if` branches return the same type.
